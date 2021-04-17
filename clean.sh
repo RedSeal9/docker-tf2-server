@@ -2,7 +2,7 @@
 
 cd $SERVER/tf2/tf/maps
 
-MAPS_KEEP=("cp_badlands.bsp")
+MAPS_KEEP=("ctf_2fort.bsp")
 MAPS_ALL=( $(find -type f -name "*.bsp" -printf "%f\n") )
 
 # MAPS_DELETE=($(diff MAPS_ALL[@] MAPS_KEEP[@]))
