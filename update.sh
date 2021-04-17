@@ -1,3 +1,3 @@
 #!/bin/sh
-cd $HOME
+cd $SERVER
 ./steamcmd.sh +runscript tf2_ds.txt
