@@ -22,4 +22,4 @@ EXPOSE 27015/udp
 
 WORKDIR /home/$USER/hlserver
 ENTRYPOINT ["./tf.sh"]
-CMD ["+sv_pure", "1", "+mapcycle", "mapcycle_quickplay_payload.txt", "+map", "ctf_2fort", "+maxplayers", "24"]
+CMD ["+sv_pure", "0", "+map", "ctf_2fort", "+maxplayers", "24"]
