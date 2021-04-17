@@ -1,5 +1,5 @@
 from 32bit/ubuntu:16.04
-maintainer Robin Appelman <robin@icewind.nl>
+maintainer RedSeal9 <red@redseal.red>
 
 RUN apt-get -y update \
 	&& apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install libstdc++6 libcurl3-gnutls wget libncurses5 bzip2 unzip vim nano \
@@ -23,4 +23,4 @@ EXPOSE 27015/udp
 
 WORKDIR /home/$USER/hlserver
 ENTRYPOINT ["./tf.sh"]
-CMD ["+sv_pure", "1", "+mapcycle", "mapcycle_quickplay_payload.txt", "+map", "cp_badlands", "+maxplayers", "24"]
+CMD ["+sv_pure", "1", "+mapcycle", "mapcycle_quickplay_payload.txt", "+map", "ctf_2fort", "+maxplayers", "24"]
