@@ -2,8 +2,8 @@ from ubuntu:20.04
 maintainer RedSeal9 <red@redseal.red>
 
 RUN apt-get -y update \
-	&& apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install libstdc++6 libcurl3-gnutls wget libncurses5 bzip2 unzip vim nano \
-	&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install lib32gcc1 libstdc++6 libcurl3-gnutls wget libncurses5 bzip2 unzip nano \
+        && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV USER tf2
 
@@ -15,11 +15,11 @@ RUN chown $USER:$USER $HOME
 USER $USER
 ENV SERVER $HOME/hlserver
 RUN mkdir $SERVER
-RUN wget -O - http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -C $SERVER -xvz
+RUN wget -O - http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -C $SERVER -xvzf -
 ADD tf2_ds.txt update.sh tf.sh $SERVER/
 
 EXPOSE 27015/udp
 
 WORKDIR /home/$USER/hlserver
 ENTRYPOINT ["./tf.sh"]
-CMD ["+sv_pure", "0", "+map", "ctf_2fort", "+maxplayers", "24"]
+CMD ["+sv_pure", "1", "+mapcycle", "mapcycle_quickplay_payload.txt", "+map", "ctf_2fort", "+maxplayers", "24"]
