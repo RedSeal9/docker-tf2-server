@@ -17,7 +17,6 @@ ENV SERVER $HOME/hlserver
 RUN mkdir $SERVER
 RUN wget -O - http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -C $SERVER -xvz
 ADD tf2_ds.txt update.sh tf.sh clean.sh $SERVER/
-RUN $SERVER/update.sh && $SERVER/clean.sh
 
 EXPOSE 27015/udp
 
