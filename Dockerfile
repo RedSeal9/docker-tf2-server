@@ -1,4 +1,4 @@
-from 32bit/ubuntu:16.04
+from 64bit/ubuntu:20.04
 maintainer RedSeal9 <red@redseal.red>
 
 RUN apt-get -y update \
