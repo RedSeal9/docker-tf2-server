@@ -1,4 +1,4 @@
-from 64bit/ubuntu:20.04
+from ubuntu:20.04
 maintainer RedSeal9 <red@redseal.red>
 
 RUN apt-get -y update \
