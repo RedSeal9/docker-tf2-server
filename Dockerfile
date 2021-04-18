@@ -1,5 +1,7 @@
 from ubuntu:20.04
 maintainer RedSeal9 <red@redseal.red>
+ARG GID=20141
+ARG UID=20143
 
 RUN apt-get -y update \
         && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install lib32gcc1 libstdc++6 libcurl3-gnutls wget libncurses5 bzip2 unzip nano \
