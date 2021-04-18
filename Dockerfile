@@ -1,7 +1,10 @@
 from ubuntu:20.04
 maintainer RedSeal9 <red@redseal.red>
-ARG GID=20141
-ARG UID=20143
+ENV GID 20141
+ENV UID 20143
+
+ARG GID
+ARG UID
 
 RUN dpkg --add-architecture i386 \
 	&& apt-get -y update \
@@ -19,7 +22,7 @@ USER $USER
 ENV SERVER $HOME/hlserver
 RUN mkdir $SERVER
 RUN wget -O - http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -C $SERVER -xvzf -
-ADD update.sh tf.sh tf2_ds.txt $SERVER/
+ADD tf2_ds.txt update.sh tf.sh $SERVER/
 
 EXPOSE 27015/udp
 
