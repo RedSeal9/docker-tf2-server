@@ -1,9 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 cd $SERVER
 cd tf2
 if [ -f ".inst" ]; then
     echo fount .inst, starting game server as normal
-    ./srcds_run -game tf  $@
+args=$(eval echo $@)
+    ./srcds_run -game tf  $args
 else
     echo did not find .inst, installing tf2 server and restarting script
     cd ..
