@@ -28,4 +28,4 @@ EXPOSE 27015/udp
 
 WORKDIR /home/$USER/hlserver
 ENTRYPOINT ["./tf.sh"]
-CMD ["+sv_pure", "1", "+map", "ctf_2fort", "+maxplayers", "24", "ip", "0.0.0.0"]
+CMD ["+sv_pure", "1", "+map", "ctf_2fort", "+maxplayers", "24", "+ip", "0.0.0.0", "-port", "27015"]
