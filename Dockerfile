@@ -1,10 +1,10 @@
 from ubuntu:20.04
-maintainer RedSeal9 <red@redseal.red>
-ENV GID 20141
-ENV UID 20143
+LABEL maintainer="RedSeal9 <red@redseal.red>"
 
-ARG GID
-ARG UID
+ENV TF_MAP=ctf_2fort
+ENV TF_HOSTNAME=DockerTF
+ENV TF_RCON=red
+
 
 RUN dpkg --add-architecture i386 \
 	&& apt-get -y update \
@@ -21,11 +21,14 @@ RUN chown $USER:$USER $HOME
 USER $USER
 ENV SERVER $HOME/hlserver
 RUN mkdir $SERVER
-RUN wget -O - http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -C $SERVER -xvzf -
+RUN mkdir $SERVER/tf2
+ENV SCMD $SERVER/tf2/steamcmd
+RUN mkdir $SCMD
+RUN wget -O - http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -C $SCMD -xvzf -
 ADD tf2_ds.txt update.sh tf.sh $SERVER/
 
 EXPOSE 27015/udp
 
 WORKDIR /home/$USER/hlserver
 ENTRYPOINT ["./tf.sh"]
-CMD ["+sv_pure", "1", "+map", "ctf_2fort", "+maxplayers", "24", "+ip", "0.0.0.0", "-port", "27015"]
+CMD [" +sv_pure -1 +maxplayers 24 +ip 0.0.0.0 -port 27015 +map $TF_MAP +hostname $TF_HOSTNAME +rcon_password $TF_RCON +log on"]
