@@ -4,7 +4,7 @@ ARG GID=20141
 ARG UID=20143
 
 RUN apt-get -y update \
-        && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install lib32gcc1 libstdc++6 libcurl3-gnutls wget libncurses5 bzip2 unzip nano \
+        && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install lib32gcc1 lib32stdc++6 libstdc++6 libcurl3-gnutls wget libncurses5 bzip2 unzip nano \
         && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV USER tf2
@@ -18,7 +18,7 @@ USER $USER
 ENV SERVER $HOME/hlserver
 RUN mkdir $SERVER
 RUN wget -O - http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -C $SERVER -xvzf -
-ADD tf2_ds.txt update.sh tf.sh $SERVER/
+ADD update.sh tf.sh tf2_ds.txt $SERVER/
 
 EXPOSE 27015/udp
 
