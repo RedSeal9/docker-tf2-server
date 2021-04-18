@@ -7,5 +7,5 @@ if [ -f ".inst" ]; then
 else
     echo did not find .inst, installing tf2 server and restarting script
     cd ..
-    ./update.sh && touch tf2/.inst && $0
+    ./update.sh && touch tf2/.inst && $0 $@
 fi
