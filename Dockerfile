@@ -3,8 +3,9 @@ maintainer RedSeal9 <red@redseal.red>
 ARG GID=20141
 ARG UID=20143
 
-RUN apt-get -y update \
-        && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install lib32gcc1 lib32stdc++6 libstdc++6 libcurl3-gnutls wget libncurses5 bzip2 unzip nano \
+RUN dpkg --add-architecture i386 \
+	&& apt-get -y update \
+        && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install lib32z1 libncurses5:i386 libbz2-1.0:i386 lib32gcc1 lib32stdc++6 libtinfo5:i386 libcurl3-gnutls:i386 wget bzip2 unzip nano \
         && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV USER tf2
