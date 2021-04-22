@@ -1,3 +1,3 @@
 #!/bin/sh
-cd $SERVER
-$SCMD/steamcmd.sh +runscript $SERVER/tf2_ds.txt
+cd "$SERVER" || exit 1
+"$SCMD"/steamcmd.sh +runscript "$SERVER"/tf2_ds.txt
