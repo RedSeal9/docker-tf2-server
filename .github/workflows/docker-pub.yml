@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Docker image
+      run: docker build . --file Dockerfile -t redseel/tf2:latest
+    - name: Login to Docker
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login -u redseel --password-stdin
+    - name: Publish to Docker Hub
+      run: docker push redseel/tf2:latest
