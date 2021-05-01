@@ -15,6 +15,6 @@ jobs:
     - name: Build Docker image
       run: docker build . --file Dockerfile -t redseel/tf2:latest
     - name: Login to Docker
-      run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login --username redseel --password-stdin
+      run: docker login --username redseel --password ${{ secrets.DOCKER_TOKEN }}
     - name: Publish to Docker Hub
       run: docker push redseel/tf2:latest
