@@ -11,12 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     - name: test
-       run: echo ${{ secrets.TEST }}
-#    - name: Login to DockerHub Registry
-#      run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-#    - uses: actions/checkout@v2
-#    - name: Build Docker image
-#      run: docker build . --file Dockerfile -t redseel/tf2:latest
-#    - name: Publish to Docker Hub
-#      run: docker push redseel/tf2:latest
+    - name: Login to DockerHub Registry
+      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+    - uses: actions/checkout@v2
+    - name: Build Docker image
+      run: docker build . --file Dockerfile -t redseel/tf2:latest
+    - name: Publish to Docker Hub
+      run: docker push redseel/tf2:latest
