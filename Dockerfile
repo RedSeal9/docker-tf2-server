@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-LABEL maintainer="RedSeal9 <red@redseal.red>"
+LABEL maintainer="RedSeal9 <git@redseal.red>"
 
 ENV TF_MAP=ctf_2fort
 ENV TF_HOSTNAME=DockerTF
