@@ -6,23 +6,19 @@ on:
 
 jobs:
 
-  login:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: reseel
-          password: ${{ secrets.DOCKER_TOKEN }}
-
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build Docker image
-      run: docker build . --file Dockerfile -t redseel/tf2:latest
-    - name: Publish to Docker Hub
-      run: docker push redseel/tf2:latest
+        - name: Login to Docker Hub
+          uses: docker/login-action@v1
+          with:
+            username: redseel
+            password: ${{ secrets.DOCKER_TOKEN }}
+
+   # - uses: actions/checkout@v2
+   # - name: Build Docker image
+   #   run: docker build . --file Dockerfile -t redseel/tf2:latest
+   # - name: Publish to Docker Hub
+   #   run: docker push redseel/tf2:latest
