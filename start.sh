@@ -1,3 +1,3 @@
 #!/bin/bash
 chown -R $USER:$USER $HOME
-exec sudo -u $USER $SERVER/tf.sh $@
+exec sudo -E -u $USER $SERVER/tf.sh $@
