@@ -26,8 +26,9 @@ ADD start.sh tf2_ds.txt update.sh tf.sh $SERVER/
 
 EXPOSE 27015/udp
 
-RUN chown $USER:$USER $HOME -R
 VOLUME $SERVER/tf2
+RUN chown $USER:$USER $HOME -R
+
 
 WORKDIR $SERVER
 ENTRYPOINT ["./start.sh"]
