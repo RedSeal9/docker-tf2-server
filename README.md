@@ -2,6 +2,7 @@
 
 Basic Team Fortress 2 server
 
+[![Docker CI](https://github.com/RedSeal9/docker-tf2-server/actions/workflows/docker-ci.yml/badge.svg?event=push)](https://github.com/RedSeal9/docker-tf2-server/actions/workflows/docker-ci.yml)
 ```
 docker pull redseel/tf2:latest
 ```
