@@ -1,3 +1,7 @@
 #!/bin/bash
 cd $SERVER
-./steamcmd.sh +runscript $SERVER/tf2_ds.txt
+./steamcmd.sh \
++login anonymous \
++force_install_dir $SERVER/tf2 \
++app_update 232250 \
++quit \
