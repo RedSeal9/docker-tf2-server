@@ -5,7 +5,7 @@ ENV MAP=ctf_2fort
 ENV HOSTNAME=DockerTF
 ENV RCON=red
 
-ENV DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 
 
 RUN dpkg --add-architecture i386 \
@@ -33,3 +33,4 @@ RUN chown $USER:$USER $HOME -R
 WORKDIR $SERVER
 ENTRYPOINT ["./start.sh"]
 CMD [" +sv_pure -1 +maxplayers 24 +ip 0.0.0.0 -port 27015 +map $MAP +hostname $HOSTNAME +rcon_password $RCON +log on"]
+
